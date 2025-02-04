@@ -1,19 +1,21 @@
 # based off what is said by google:
 # something that allows for programmatic generation of code.
 # I hope this works.
-# I have never "metaprgrammed" before
+# I have never "metaprogrammed" before
 
 class WordCounter:
     def __init__(self, text):
         self.text = text.lower()
         self.words = self.text.split()
     
+    def total_words(self):
+        return len(self.words)
+
     def count_word(self, word):
         return self.words.count(word.lower())
 
     @classmethod
     def generate_counter_methods(cls, *words):
-        """Dynamically generates methods for counting specific words."""
         for word in words:
             method_name = f'count_{word}'
             setattr(cls, method_name, cls._create_counter_method(word))
@@ -37,3 +39,4 @@ def test_word_counter():
     assert counter.count_lorem() == 3
     assert counter.count_nam() == 1
     assert counter.count_tristique() == 1
+    assert counter.total_words() == 127

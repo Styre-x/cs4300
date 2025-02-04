@@ -1,7 +1,3 @@
-# i asked chatgpt to create favorite books for me. I do not really have any favorites right now. I have not been reading since summer
-# :-)
-# The chat export is in chatgpt.txt
-
 books = [
     "Name: The Cuckoo's Egg, Author: Cliff Stoll",
     "Name: Ghost in the Wires, Author: Kevin Mitnick",
@@ -16,7 +12,7 @@ books = [
 ]
 
 students = {
-    "student1" : 1,
+    "student1": 1,
     "student2": 2,
     "student3": 3
 }
