@@ -16,19 +16,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# no need to worry, this will never see an production server. 
 SECRET_KEY = 'django-insecure-op@3edplz#3jmc@&d0yne*jqk_xx8tuij)4e6a!&&28x_omj^3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["app-devenviroment-5.devedu.io"]
-
-
-# Application definition
+ALLOWED_HOSTS = ["app-devenviroment-5.devedu.io", "localhost"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'bookings',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +46,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookings.urls'
+
+LOGIN_REDIRECT_URL = ""
+
 
 TEMPLATES = [
     {
@@ -105,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'MST'
 
 USE_I18N = True
 
