@@ -18,5 +18,12 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+# Admin:
+# admin
+# SuperSecretPassword
+
+# test
+# TesterUser
+
 if __name__ == '__main__':
     main()

@@ -1,7 +1,77 @@
+{% load static %}
+
+{% block extra_css %}
+<style>
+  body {
+    background-color: #f0f2f5;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .login-form p {
+    margin-bottom: 15px;
+  }
+
+  .login-form input[type="text"],
+  .login-form input[type="password"],
+  .login-form input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+  }
+
+  .login-form input[type="text"]:focus,
+  .login-form input[type="password"]:focus,
+  .login-form input[type="email"]:focus {
+    border-color: #5cb85c;
+  }
+
+  .login-form button {
+    width: 100%;
+    background-color: #5cb85c;
+    color: white;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-form button:hover {
+    background-color: #4cae4c;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-  <form method="post">
+<div class="login-container">
+  <form method="post" class="login-form">
     {% csrf_token %}
+    <h2>Login</h2>
     {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
+</div>
 {% endblock %}

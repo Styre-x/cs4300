@@ -14,4 +14,4 @@ class MovieModelTest(TestCase):
     def test_movie_creation(self):
         self.assertEqual(self.movie.title, "Test Movie")
 
-# Similarly add tests for Seat and Booking models as well as for views if desired.
+#TODO: add more tests
