@@ -1,5 +1,15 @@
 Hello!
 
+To Log IN:
+
+# Admin:
+# admin
+# SuperSecretPassword
+
+# User:
+# test
+# TesterUser
+
 Very easy to run, python3 manage.py runserver 0.0.0.0:3000
 
 API:
