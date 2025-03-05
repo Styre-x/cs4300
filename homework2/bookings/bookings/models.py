@@ -12,7 +12,8 @@ class Movie(models.Model):
 
 class Seat(models.Model):
     seat_number = models.CharField(max_length=10)
-    is_booked = models.BooleanField(default=False)
+    is_booked = models.BooleanField(default=False) # yeah. This breaks when you have more than 1 movie lol. 
+    # oops, I don't want to fix it!
 
     def __str__(self):
         return self.seat_number

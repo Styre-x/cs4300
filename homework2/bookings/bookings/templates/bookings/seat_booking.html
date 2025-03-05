@@ -2,16 +2,55 @@
 {% block title %}Book Seat for {{ movie.title }}{% endblock %}
 {% block content %}
 <h2>Book Seat for {{ movie.title }}</h2>
+
+{% if error_message %}
+  <div class="alert alert-danger">{{ error_message }}</div>
+{% endif %}
+
 <form method="post">
     {% csrf_token %}
-    <div class="mb-3">
-        <label for="seat" class="form-label">Select a Seat</label>
-        <select id="seat" name="seat" class="form-select">
-            {% for seat in seats %}
-            <option value="{{ seat.id }}">{{ seat.seat_number }}</option>
-            {% endfor %}
-        </select>
+    <input type="hidden" name="seat" id="selectedSeat" value="">
+    
+    <div class="container">
+        {% for row in seat_rows %}
+            <div class="row mb-2">
+                {% for seat in row %}
+                    <div class="col text-center">
+                        {% if seat.is_booked %}
+                            <button type="button" class="btn btn-danger btn-block" disabled>
+                                {{ seat.seat_number }}
+                            </button>
+                        {% else %}
+                            <button type="button" class="btn btn-success btn-block seat-button" data-seat-id="{{ seat.id }}">
+                                {{ seat.seat_number }}
+                            </button>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
-    <button type="submit" class="btn btn-success w-100">Confirm Booking</button>
+    <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button>
 </form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const seatButtons = document.querySelectorAll(".seat-button");
+    const selectedSeatInput = document.getElementById("selectedSeat");
+    
+    seatButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            seatButtons.forEach(btn => btn.classList.remove("active-seat"));
+            this.classList.add("active-seat");
+            selectedSeatInput.value = this.getAttribute("data-seat-id");
+        });
+    });
+});
+</script>
+
+<style>
+.active-seat {
+    border: 2px solid #000;
+}
+</style>
 {% endblock %}

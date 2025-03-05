@@ -25,5 +25,10 @@ def main():
 # test
 # TesterUser
 
+# API:
+# Seats: manage seats
+# Bookings: Manage bookings
+# Movies: Manage Movies
+
 if __name__ == '__main__':
     main()
